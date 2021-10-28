@@ -1,1 +1,99 @@
-single-price-grid-component
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <title>Single Price Grid Component</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <style>
+        .wrapper-component{
+            min-height: 600px;
+            width: 800px;
+            background-color: white;
+            margin: 6% auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .grid1{
+            min-height: 300px;
+            padding: 50px;
+            box-sizing: border-box;
+        }
+        .grid2{
+            background-color: hsl(179, 62%, 43%);
+            min-height: 250px;
+            display: flex;
+            flex-direction: row;
+        }
+        .column1{
+            flex-basis: 50%;
+            min-height: inherit;
+            box-sizing: inherit;
+            padding: 50px;
+        }
+        .price-info{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 60px;
+        }
+        .SignUp{
+            background-color: hsl(71, 73%, 54%);
+            height: 50px;
+            width: 90%;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .column1:hover{
+            background-color: darkcyan;
+        }
+        @media (max-width: 375px) {
+            .wrapper-component {
+                width: 85%;
+            }
+            .grid2 {
+                flex-direction: column;
+            }
+            .column1{
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body style="background-color: hsl(204, 43%, 93%)" >
+<div class="wrapper-component">
+    <div class="grid1">
+        <h1 style="font-family: Karla;font-weight: 600;color:hsl(179, 62%, 43%)">Join our community</h1>
+        <h2 style="font-family: Karla;font-weight: 600;color:hsl(71, 73%, 54%)">30-day, hastle-free money back guarantee</h2>
+        <p style="font-size: 20px; font-family: Karla;font-weight: 400;color:hsl(218, 22%, 67%);line-height: 2;">Gain access to our full library of tutorials along with expert code reviews.
+            <br>Perfect for any developers who are serious about honing their skills.</p>
+    </div>
+    <div class="grid2">
+        <div class="column1">
+            <h2 style="font-family: Karla;font-weight: 400;color: hsl(204, 43%, 93%)">Monthly Subscription</h2>
+            <span class="price-info">
+                       <h1 style="margin-right: 20px;;font-family: Karla;font-weight: 400;color: white">$29</h1>
+                       <h3 style="font-family: Karla;font-weight: 400;color: hsl(204, 43%, 93%);opacity: 50%;">per month</h3>
+                   </span>
+            <h3 style="font-family: Karla;font-weight: 400;color: hsl(204, 43%, 93%);opacity: 80%">Full access for less than $1 a day</h3>
+            <div class="SignUp">
+                <h3 style="font-family: Karla;font-weight: 400;color:yellow;">Sign Up</h3>
+            </div>
+        </div>
+        <div class="column1">
+            <h2 style="font-family: Karla;font-weight: 400;color: hsl(204, 43%, 93%)">Why Us</h2>
+            <p style="font-family: Karla;font-weight: 400;color: hsl(204, 43%, 93%);line-height: 25px;opacity: 80%">Tutorials by industry experts<br>
+                Peer & expert code review<br>Coding exercises<br>Access to out GitHub repos<br>
+                Community Forum<br>Flashcard decks<br>
+                New videos every week
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+</script>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BaseApparel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        .wrapper-body{
+            width: 1780px;
+            height: 910px;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+        }
+        .bg1{
+           width: 60%;
+            background-image: url('images/bg-pattern-desktop.svg');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .bg2{
+            width: 40%;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .bg1-inner{
+            width: 80%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+        }
+        .logo{
+            width: 20%;
+            height: 4%;
+            margin: 50px;
+            background-image: url('images/logo.svg');
+            background-size: contain;
+        }
+        .content{
+            width: 69%;
+            height: 60%;
+            margin: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+        .content-text{
+            width: 100%;
+            height: 70%;
+            margin: 10px;
+        }
+        .wrapper-email{
+            width: 100%;
+            height: 10%;
+            display: flex;
+        }
+        .content-email{
+            width: 100%;
+            height: 100%;
+            border: 1px solid hsl(0, 36%, 70%);
+            border-radius: 30px;
+            padding-left: 25px;
+            opacity: 50%;
+        }
+        .error-icon{
+            background-image: url(images/icon-error.svg);
+            width: 28px;
+            height: 28px;
+            left: 510px;
+            top: 624px;
+            background-size: cover;
+            position: absolute;
+            display: none;
+        }
+        .show {
+            display: block !important;
+        }
+        input:focus{
+            outline-color: hsl(0, 93%, 68%);
+            font-size: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .head1{
+            font-family: 'Josefin Sans', sans-serif;
+            color: hsl(0, 36%, 70%);
+            font-size: 70px;
+            margin: 0px;
+            letter-spacing: 20px;
+            font-weight: 300;
+
+        }
+        .head2{
+            font-family: 'Josefin Sans', sans-serif;
+            color: hsl(0, 6%, 24%);
+            font-size: 70px;
+            margin: 0px;
+            letter-spacing: 25px;
+            font-weight: 600;
+        }
+        .text{
+            font-family: 'Josefin Sans', sans-serif;
+            color: hsl(0, 36%, 70%);
+            font-size: 20px;
+            margin-top: 30px;
+            font-weight: 400;
+            word-spacing: 4px;
+            line-height: 30px;
+        }
+        ::placeholder{
+            color: hsl(0, 36%, 70%);
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+        }
+        .next-button{
+            width: 25%;
+            height: 110%;
+            border-radius: 30px;
+            background-image: linear-gradient(
+                    135deg,hsl(0, 80%, 86%),hsl(0, 74%, 74%));
+            position: relative;
+            right: 50px;
+            border: none;
+        }
+        button:focus{
+            opacity: 80%;
+        }
+        .arrow{
+            width: 15%;
+            height: 35%;
+        }
+        .error-message{
+            color: hsl(0, 93%, 68%);
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            margin-left: 30px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper-body">
+    <div class="bg1">
+        <div class="bg1-inner">
+         <div class="logo">
+         </div>
+            <div class="content">
+                <div class="content-text">
+                    <p class="head1">WE'RE</p>
+                    <p class="head2">COMING</p>
+                    <p class="head2">SOON</p>
+                    <p class="text">Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+                </div>
+                <div class="wrapper-email">
+                    <input type="email" id="emailId" class="content-email" placeholder="Email Address">
+                    <div id="errorIcon" class="error-icon"></div>
+                    <button class="next-button" onclick="checkEmail()">
+                        <img class="arrow" alt="arrow" src="images/icon-arrow.svg">
+                    </button>
+                </div>
+                <p id="errorMessage" class="error-message">Please provide a valid email</p>
+            </div>
+        </div>
+    </div>
+    <div class="bg2">
+        <img alt="background2" src="images/hero-desktop.jpg">
+    </div>
+</div>
+</body>
+<script>
+    function checkEmail(){
+        const id = document.getElementById("emailId").value;
+        const errorIcon = document.getElementById("errorIcon")
+        const errorMessage = document.getElementById("errorMessage")
+        const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (id === "") {
+            errorIcon.classList.add("show");
+            errorMessage.classList.add("show");
+        } else {
+            if(reg.test(id)){
+                errorIcon.classList.remove("show");
+                errorMessage.classList.remove("show");
+            }
+            else{
+                errorIcon.classList.add("show");
+                errorMessage.classList.add("show");
+            }
+        }
+    }
+
+
+
+    // get a regex for email validation
+    // in validation function test for text in input with that regex.  .test() method => boolean
+    // you ll get to know email valid r not
+    //
+</script>
+</html>
